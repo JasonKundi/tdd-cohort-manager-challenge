@@ -12,6 +12,18 @@ class CohortManager {
         return this.cohorts
 
     }
+    searchForCohort(nameOf) {
+        const searchCohort = this.cohorts.find((cohort) => cohort.name === nameOf);
+        return searchCohort
+        
+
+    }
+    
+    //for (let i = 0; i < this.cohorts.length; i++) {
+    //    if (this.cohorts[i] === nameOf) {
+    //        return this.cohorts[i]
+    //    }
+   //}
 }
 
 module.exports = CohortManager;
