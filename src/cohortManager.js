@@ -14,7 +14,12 @@ class CohortManager {
   }
   searchForCohort(nameOf) {
     const searchCohort = this.cohorts.find((cohort) => cohort.name === nameOf);
-    return searchCohort;
+    if (searchCohort) {
+      return searchCohort;
+    }
+    if (!searchCohort) {
+      return "Cohort Not Found!";
+    }
   }
   returnAllCohorts() {
     return this.cohorts;
@@ -58,7 +63,14 @@ class CohortManager {
     cohort.currentStudents.push(studentNew);
     return cohort.currentStudents;
   }
-  removeStudentFromCohort(nameOf, studentID, firstName, lastName, githubUserName, email) {
+  removeStudentFromCohort(
+    nameOf,
+    studentID,
+    firstName,
+    lastName,
+    githubUserName,
+    email
+  ) {
     let cohort = this.searchForCohort(nameOf);
     let studentRemove = new Student(
       studentID,
@@ -67,9 +79,18 @@ class CohortManager {
       githubUserName,
       email
     );
-    cohort.currentStudents.splice(studentRemove)
+    cohort.currentStudents.splice(studentRemove);
     return cohort.currentStudents;
   }
-}
+  findStudentByID(studentID) {  
+    for (let i = 0; i < this.students.length; i++) {
+      let student = this.students[i]
+      if (student.studentID === studentID) {
+        return student
+      }
+      }
+    }
+  }
+
 
 module.exports = CohortManager;
