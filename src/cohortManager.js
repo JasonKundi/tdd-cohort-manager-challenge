@@ -1,4 +1,5 @@
 const Cohort = require("./Cohort.js");
+const Student = require("./student.js")
 
 class CohortManager {
   constructor() {
@@ -18,12 +19,11 @@ class CohortManager {
     return this.cohorts;
   }
 
-  removeCohort(removeName) {
+  removeCohort(nameOf) {
     for (let i = 0; i < this.cohorts.length; i++) {
-      if (this.cohorts[i] === removeName) {
-         this.cohorts[i].splice;
+      if (this.cohorts[i].name === nameOf) {
+         this.cohorts.splice(i, 1);
       }
-      return this.cohorts
     }
   }
 }

@@ -1,5 +1,6 @@
 const CohortManager = require("../src/cohortManager.js");
 const Cohort = require("../src/Cohort.js");
+const Student = require("../src/student.js")
 
 describe("TodoList", () => {
   let cohortManager;
@@ -73,6 +74,24 @@ describe("TodoList", () => {
       const expected = [class1, class2]
   
       const result = cohortManager.returnAllCohorts()
+  
+      expect(result).toEqual(expected)
+  })
+  it ("CohortManager//addStudent() - add student to a specific cohort", () => {
+  
+      //set up
+      const class1 = new Cohort("A Class")
+      
+      cohortManager.createCohort("A Class")
+      cohortManager.addStudent(1234, "John","Cena","gitSmackDown","cantSeeMe@yahoo.com")
+      
+  
+  
+      //expected
+  
+      const expected = [class1, class2]
+  
+      const result = cohortManager.returnStudentList(1)
   
       expect(result).toEqual(expected)
   })
