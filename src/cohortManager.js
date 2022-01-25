@@ -4,6 +4,7 @@ const Student = require("./student.js")
 class CohortManager {
   constructor() {
     this.cohorts = [];
+    this.students = []
   }
 
   createCohort(nameOf) {
@@ -26,6 +27,16 @@ class CohortManager {
       }
     }
   }
+  createStudent(studentID, firstName, lastName, githubUserName, email) {
+      let studentNew = new Student(studentID, firstName,lastName,githubUserName,email)
+      this.students.push(studentNew)
+      return this.students
+  }
+
+  addStudentToCohort(cohort, studentID, firstName, lastName, githubUserName, email ) {
+
+  }
+  
 }
 
 module.exports = CohortManager;

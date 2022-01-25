@@ -1,6 +1,6 @@
 const CohortManager = require("../src/cohortManager.js");
 const Cohort = require("../src/Cohort.js");
-const Student = require("../src/student.js")
+const Student = require("../src/student.js");
 
 describe("TodoList", () => {
   let cohortManager;
@@ -77,21 +77,35 @@ describe("TodoList", () => {
   
       expect(result).toEqual(expected)
   })
+  it ("CohortManager//createStudent() - creates new student with Id, name, github, email", () => {
+  
+      //set up
+      
+      cohortManager.createCohort("A Class")
+
+  
+      //expected
+  
+      const expected = new Student(1234, "John","Cena","gitSmackDown","cantSeeMe@yahoo.com")
+  
+      const result = cohortManager.createStudent(1234, "John","Cena","gitSmackDown","cantSeeMe@yahoo.com")
+  
+      expect(result).toEqual([expected])
+  })
   it ("CohortManager//addStudent() - add student to a specific cohort", () => {
   
       //set up
-      const class1 = new Cohort("A Class")
+      const cohort = new Cohort("A Class")
       
-      cohortManager.createCohort("A Class")
-      cohortManager.addStudent(1234, "John","Cena","gitSmackDown","cantSeeMe@yahoo.com")
-      
+      cohortManager.createCohort("A Class")      
   
   
       //expected
   
-      const expected = [class1, class2]
+      const expected = cohortManager.addStudentToCohort("A Class",1234, "John","Cena","gitSmackDown","cantSeeMe@yahoo.com")
+
   
-      const result = cohortManager.returnStudentList(1)
+      const result = cohort.student
   
       expect(result).toEqual(expected)
   })

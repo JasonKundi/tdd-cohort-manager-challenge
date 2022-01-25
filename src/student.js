@@ -3,11 +3,13 @@ const Cohort = require("./Cohort.js");
 
 class Student {
     constructor(studentID, firstName, lastName, githubUserName, email) {
-        this.studentId
-        this.firstName
-        this.lastName
-        this.githubUserName
-        this.email
+        this.studentId = studentID
+        this.firstName = firstName
+        this.lastName = lastName
+        this.githubUserName = githubUserName
+        this.email = email
 
     }
 }
+
+module.exports = Student
