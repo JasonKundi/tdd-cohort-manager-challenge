@@ -119,9 +119,9 @@ describe("TodoList", () => {
   
       //expected
   
-      const result = cohortManager.removeStudentFromCohort()
+      const result = cohortManager.removeStudentFromCohort("A Class",1234)
 
-      expect(result).toEqual([expected])
+      expect(result).toEqual(expected)
   })
 
 });

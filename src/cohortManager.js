@@ -56,7 +56,19 @@ class CohortManager {
       email
     );
     cohort.currentStudents.push(studentNew);
-    return cohort.currentStudents
+    return cohort.currentStudents;
+  }
+  removeStudentFromCohort(nameOf, studentID, firstName, lastName, githubUserName, email) {
+    let cohort = this.searchForCohort(nameOf);
+    let studentRemove = new Student(
+      studentID,
+      firstName,
+      lastName,
+      githubUserName,
+      email
+    );
+    cohort.currentStudents.splice(studentRemove)
+    return cohort.currentStudents;
   }
 }
 
