@@ -4,8 +4,10 @@ const Student = require("./student.js")
 class Cohort {
     constructor(name) {
     this.name = name 
-    this.student = []
+    this.currentStudents = []
     }
+
+    
 }
 
 module.exports = Cohort;

@@ -95,18 +95,33 @@ describe("TodoList", () => {
   it ("CohortManager//addStudent() - add student to a specific cohort", () => {
   
       //set up
-      const cohort = new Cohort("A Class")
-      
+  
+      const expected = new Student(1234, "John","Cena","gitSmackDown","cantSeeMe@yahoo.com")
+
       cohortManager.createCohort("A Class")      
   
   
       //expected
   
-      const expected = cohortManager.addStudentToCohort("A Class",1234, "John","Cena","gitSmackDown","cantSeeMe@yahoo.com")
+      const result = cohortManager.addStudentToCohort("A Class",1234, "John","Cena","gitSmackDown","cantSeeMe@yahoo.com")
 
-  
-      const result = cohort.student
-  
-      expect(result).toEqual(expected)
+      expect(result).toEqual([expected])
   })
+  it ("CohortManager//removeStudentFromCohort() - remove student to a specific cohort", () => {
+  
+      //set up
+  
+      const expected = []
+
+      cohortManager.createCohort("A Class") 
+      cohortManager.addStudentToCohort("A Class",1234, "John","Cena","gitSmackDown","cantSeeMe@yahoo.com")     
+  
+  
+      //expected
+  
+      const result = cohortManager.removeStudentFromCohort()
+
+      expect(result).toEqual([expected])
+  })
+
 });
